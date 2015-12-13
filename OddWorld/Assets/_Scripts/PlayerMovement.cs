@@ -36,11 +36,7 @@ public class PlayerMovement : MonoBehaviour
         {
             startTime = Time.time;
             journeyLength = Vector3.Distance(StartMarker.position, EndMarker.position);
-            /*
-                GameObject markerObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                markerObject.AddComponent<Rigidbody>();
-                markerObject.transform.position = hit.point;
-                */
+         
             Moving = true;
         }
 

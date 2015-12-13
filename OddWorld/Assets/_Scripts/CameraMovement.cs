@@ -5,7 +5,7 @@ public class CameraMovement : MonoBehaviour
 {
 
 
-    public Transform Player;
+    public GameObject Player;
     public float Speed;
     public float OffSetY;
     public float OffSetZ;
@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        Player = GameObject.FindGameObjectWithTag("Player");
 
 	    Speed = 5f;
 	}
@@ -21,8 +22,10 @@ public class CameraMovement : MonoBehaviour
 	void Update () {
 
 
-    
-      transform.position = Vector3.Lerp(transform.position, new Vector3(Player.position.x, Player.position.y+OffSetY, Player.position.z-OffSetZ ), Time.deltaTime*Speed);
+	    if (Player != null)
+	    {
+	        transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y+OffSetY, Player.transform.position.z-OffSetZ ), Time.deltaTime*Speed);
+	    }
 
     }
 }
